@@ -10,11 +10,15 @@ data class Gasto(
     var deudores:MutableList<Participante>
 ):Serializable{
     // Este método distribuye el gasto entre los deudores y actualiza los balances.
-    fun distribuirGasto() {
+    fun distribuirGasto(actividad: Actividad) {
         // Calcular cuánto le toca pagar a cada deudor
-        val cantidadPorPersona = precio / deudores.size
+        val cantidadPorPersona = precio / actividad.participantes.size
 
         // El pagador no tiene deuda, pero los deudores deben su parte.
+        val pagador = actividad.participantes.first { it.nombre == pagador.nombre }
+        val deudores = actividad.participantes.filter { it.nombre != pagador.nombre }
+
+        // Recorrer los deudores y actualizar sus balances
         for (deudor in deudores) {
             // Restar la cuota de cada deudor
             deudor.balance -= cantidadPorPersona
@@ -23,11 +27,35 @@ data class Gasto(
             pagador.balance += cantidadPorPersona
 
             // Logs para ver cómo va quedando el saldo de cada uno
-            Log.i("deudor", "${deudor.nombre} -> ${deudor.balance}")
+            Log.i("deudor", "${deudor.nombre} ahora debe -> ${deudor.balance}")
         }
 
         // Log para ver el saldo final del pagador
-        Log.i("pagador", "${pagador.nombre} -> ${pagador.balance}")
+        Log.i("pagador", "${pagador.nombre} ha pagado -> ${pagador.balance}")
+        // Ahora, después de distribuir el gasto, calculamos las deudas
+        calcularDeudas(actividad)
     }
 
+    private fun calcularDeudas(actividad: Actividad) {
+        // Crear una lista de deudas basadas en los balances actuales de los participantes
+        val deudas = mutableListOf<Deuda>()
+
+        // Calcular las deudas: un deudor debe la diferencia entre lo que ha pagado y lo que le tocaba pagar
+        for (participante in actividad.participantes) {
+            // Aquí asumimos que el saldo negativo representa deuda
+            if (participante.balance < 0) {
+                val deuda = Deuda(
+                    deudor = participante,
+                    acreedor = actividad.participantes.first { it.balance > 0 }, // Puedes modificar este criterio según la lógica que necesites
+                    cantidad = Math.abs(participante.balance) // La deuda es el valor absoluto del balance
+                )
+                deudas.add(deuda)
+                //Log.i("Deuda", "${participante.nombre} debe ${Math.abs(participante.balance)}")
+                Log.i("Deuda1", "${deuda.deudor.nombre} debe ${Math.abs(deuda.cantidad)} a ${deuda.acreedor.nombre}")
+            }
+        }
+
+        // Log para mostrar las deudas calculadas
+        Log.i("Deudas", "Deudas calculadas: $deudas")
+    }
 }

@@ -10,7 +10,6 @@ import com.example.proyectofinal.R
 import com.example.proyectofinal.adaptadores.DeudaAdaptador
 import com.example.proyectofinal.databinding.FragmentoDeudasBinding
 import com.example.proyectofinal.modelos.Actividad
-import com.example.proyectofinal.proveedores.ActividadProveedor
 
 class FragmentoDeudas : Fragment() {
 
@@ -36,12 +35,10 @@ class FragmentoDeudas : Fragment() {
         val binding = FragmentoDeudasBinding.bind(vista)
         // Recuperamos la actividad pasada como argumento
         actividadSeleccionada = arguments?.getSerializable("actividad") as Actividad
-        
-        // Ahora, calculamos las deudas basadas en los balances
-        ActividadProveedor.calcularDeudas(actividadSeleccionada)
+
 
         // Configuramos el RecyclerView para mostrar las deudas
-        deudaAdaptador = DeudaAdaptador(actividadSeleccionada)
+        deudaAdaptador = DeudaAdaptador(actividadSeleccionada.participantes)
         binding.rvDeudas.layoutManager = LinearLayoutManager(context)
         binding.rvDeudas.adapter = deudaAdaptador
 

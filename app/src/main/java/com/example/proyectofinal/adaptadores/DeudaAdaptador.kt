@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.R
 import com.example.proyectofinal.databinding.ElementoDeudaBinding
-import com.example.proyectofinal.modelos.Actividad
 import com.example.proyectofinal.modelos.Participante
 
-class DeudaAdaptador(private val actividad: Actividad) : RecyclerView.Adapter<DeudaAdaptador.DeudaViewHolder>() {
+class DeudaAdaptador(private val participantes: List<Participante>) : RecyclerView.Adapter<DeudaAdaptador.DeudaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeudaViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.elemento_deuda, parent, false)
@@ -18,26 +17,31 @@ class DeudaAdaptador(private val actividad: Actividad) : RecyclerView.Adapter<De
     }
 
     override fun onBindViewHolder(holder: DeudaViewHolder, position: Int) {
-        val deuda = actividad.deudas[position] // Accedemos a la lista de deudas
-        holder.bind(deuda)
+        val participante = participantes[position]
+        holder.bind(participante)
     }
 
-    override fun getItemCount(): Int {
-        Log.i("Deudas", "Número de deudas: ${actividad.deudas.size}")
-        return actividad.deudas.size
-    }
+    override fun getItemCount(): Int = participantes.size
 
     class DeudaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = ElementoDeudaBinding.bind(itemView)
 
-        fun bind(deuda: Triple<Participante, Double, Participante>) {
-            val (deudor, cantidad, acreedor) = deuda
 
-            Log.i("Deuda", "${deudor.nombre} debe ${cantidad}€ a ${acreedor.nombre}")
+        fun bind(participante: Participante) {
+            Log.i("deudor", "${participante.balance}")
 
-            binding.txtParticipante.text = "${deudor.nombre} → ${acreedor.nombre}"
-            binding.txtBalance.text = "Cantidad: ${cantidad}€"
-            binding.txtDeuda.text = "${deudor.nombre} debe pagar a ${acreedor.nombre}"
+            binding.txtParticipante.text = participante.nombre
+            binding.txtBalance.text = "Balance: ${participante.balance}€"
+
+            // Si el balance es positivo, significa que es un acreedor
+            if (participante.balance > 0) {
+                binding.txtDeuda.text = "Debe recibir: ${participante.balance}€"
+            } else if (participante.balance < 0) {
+                // Si el balance es negativo, significa que es un deudor
+                binding.txtDeuda.text = "Debe pagar: ${-participante.balance}€"
+            } else {
+                binding.txtDeuda.text = "No debe"
+            }
         }
     }
 }

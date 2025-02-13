@@ -1,6 +1,7 @@
 package com.example.proyectofinal
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -77,7 +78,14 @@ class DetalleActividadActivity : AppCompatActivity() {
     private fun cargarActividad() {
         actividadSeleccionada = ActividadProveedor.listaActividades.find { it.nombre == nombreActividad }
 
-        actividadSeleccionada?.let { ActividadProveedor.calcularBalance(it) }
+        actividadSeleccionada?.participantes?.forEach { it.balance = 0.0 }
+
+        for (gasto in actividadSeleccionada?.gastos!!) {
+            gasto.distribuirGasto(actividadSeleccionada!!)  // Distribuye el gasto y actualiza los balances
+            actividadSeleccionada!!.participantes.forEach {
+                Log.i("Balance", "Participante: ${it.nombre}, Balance: ${it.balance}")
+            }
+        }
 
         actividadSeleccionada?.let {
             toolbar.title = it.nombre

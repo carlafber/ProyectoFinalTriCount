@@ -37,10 +37,9 @@ class FragmentoGastos : Fragment() {
         // Recuperamos la actividad pasada como argumento
         actividadSeleccionada = arguments?.getSerializable("actividad") as Actividad
 
+        //++++++++++++++++++++++++++++ SE LLAMA VARIAS VECES¿?
         // Distribuimos los gastos y actualizamos los balances
-        for (gasto in actividadSeleccionada.gastos) {
-            gasto.distribuirGasto()  // Distribuye el gasto y actualiza los balances
-        }
+
 
         // Configuramos el RecyclerView para mostrar los gastos
         gastoAdaptador = GastoAdaptador(actividadSeleccionada.gastos)
