@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/gastos"
+        android:icon="@drawable/ic_dinero"
+        android:title="Gastos" />
+    <item
+        android:id="@+id/deudas"
+        android:icon="@drawable/ic_cartera"
+        android:title="Deuda" />
+</menu>

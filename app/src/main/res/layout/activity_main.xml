@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+
+    <!-- para que el toolbar no desaparezca se pone layout_collapseMode -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMain"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color"
+        app:title="GESTOR DE GASTOS"
+        app:titleTextColor="#FFFFFF" />
+
+
+</com.google.android.material.appbar.AppBarLayout>
+<!-- La propiedad app:layout_behavior es muy
+importante para el CoordinatorLayout gestione el espacio
+al recyclerview debajo del AppBarLayout -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewGrupos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNuevoGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:clickable="true"
+        android:tint="#FFFFFF"
+        app:backgroundTint="@color/color"
+        app:srcCompat="@drawable/ic_add" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
