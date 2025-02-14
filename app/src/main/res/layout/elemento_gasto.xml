@@ -20,32 +20,38 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Nombre del Gasto"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/txtPrecioGasto"
+            android:textColor="@color/color2"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txtPagador"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtPrecioGasto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:text="Precio"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/txtPagador"
-            app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
+            android:textAlignment="viewEnd"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtNombreGasto"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtPagador"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="Pagado por"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPrecioGasto"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreGasto" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

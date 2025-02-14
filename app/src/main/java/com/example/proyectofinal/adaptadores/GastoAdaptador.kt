@@ -27,7 +27,7 @@ class GastoAdaptador(private val gastos: List<Gasto>) : RecyclerView.Adapter<Gas
 
         fun bind(gasto: Gasto) {
             binding.txtNombreGasto.text = gasto.nombre
-            binding.txtPrecioGasto.text = "${gasto.precio}€"
+            binding.txtPrecioGasto.text = String.format("%.2f€", gasto.precio)
 
             // Mostrar los participantes que deben este gasto
             binding.txtPagador.text = "Pagado por: ${gasto.pagador.nombre}"

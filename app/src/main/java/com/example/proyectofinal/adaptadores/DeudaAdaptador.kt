@@ -1,9 +1,9 @@
 package com.example.proyectofinal.adaptadores
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinal.R
 import com.example.proyectofinal.databinding.ElementoDeudaBinding
@@ -28,17 +28,17 @@ class DeudaAdaptador(private val participantes: List<Participante>) : RecyclerVi
 
 
         fun bind(participante: Participante) {
-            Log.i("deudor", "${participante.balance}")
 
             binding.txtParticipante.text = participante.nombre
-            binding.txtBalance.text = "Balance: ${participante.balance}€"
-
             // Si el balance es positivo, significa que es un acreedor
             if (participante.balance > 0) {
-                binding.txtDeuda.text = "Debe recibir: ${participante.balance}€"
+                binding.txtDeuda.setTextColor(ContextCompat.getColor(itemView.context, R.color.positivo))
+                binding.txtDeuda.text = String.format("+%.2f€", participante.balance)
             } else if (participante.balance < 0) {
                 // Si el balance es negativo, significa que es un deudor
-                binding.txtDeuda.text = "Debe pagar: ${-participante.balance}€"
+                binding.txtDeuda.setTextColor(ContextCompat.getColor(itemView.context, R.color.negativo))
+                binding.txtDeuda.text = String.format("%.2f€", participante.balance)
+
             } else {
                 binding.txtDeuda.text = "No debe"
             }

@@ -25,7 +25,7 @@ class DialogoEditarActividad(
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireContext())
         val inflater = requireActivity().layoutInflater
-        val view = inflater.inflate(R.layout.layout_dialog_edit, null)
+        val view = inflater.inflate(R.layout.dialogo_editar_actividad, null)
 
         txtNombreActividad = view.findViewById(R.id.txtNombreActividad)
         txtNuevoParticipante = view.findViewById(R.id.txtNuevoParticipante)

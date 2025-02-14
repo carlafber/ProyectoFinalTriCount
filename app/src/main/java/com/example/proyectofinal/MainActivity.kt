@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         fabNuevoGrupo.setOnClickListener{
             //inflar el diseño del dialogo
-            val dialogoCreateView = layoutInflater.inflate(R.layout.layout_dialog_create, null)
+            val dialogoCreateView = layoutInflater.inflate(R.layout.dialogo_crear_actividad, null)
 
             //crear el dialogo
             val dialogo = AlertDialog.Builder(this)

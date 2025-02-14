@@ -2,8 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="morado">#9C27B0</color>
-    <color name="turquesa_oscuro">#00668B</color>
     <color name="sin_selecionar">#F8F8F4F4</color>
     <color name="seleccionado">#807A7A</color>
     <color name="color">#3C5A5F</color>
@@ -12,4 +10,6 @@
     <color name="color3">#62A8AC</color>
     <color name="color4">#78CAD2</color>
     <color name="color5">#A1D2CE</color>
+    <color name="negativo">#BF3737</color>
+    <color name="positivo">#4CAF50</color>
 </resources>
