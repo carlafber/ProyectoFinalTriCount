@@ -1,15 +1,15 @@
-package com.example.proyectofinal.adaptadores
+package com.example.fairpay.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinal.R
-import com.example.proyectofinal.databinding.ElementoDeudaBinding
-import com.example.proyectofinal.modelos.Participante
+import com.example.fairpay.R
+import com.example.fairpay.databinding.ElementoDeudaBinding
+import com.example.fairpay.modelos.Participante
 
-class DeudaAdaptador(private val participantes: List<Participante>) : RecyclerView.Adapter<DeudaAdaptador.DeudaViewHolder>() {
+class SaldoAdaptador(private val participantes: List<Participante>) : RecyclerView.Adapter<SaldoAdaptador.DeudaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeudaViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.elemento_deuda, parent, false)

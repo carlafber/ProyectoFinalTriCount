@@ -1,8 +1,8 @@
-package com.example.proyectofinal.proveedores
+package com.example.fairpay.proveedores
 
-import com.example.proyectofinal.modelos.Actividad
-import com.example.proyectofinal.modelos.Gasto
-import com.example.proyectofinal.modelos.Participante
+import com.example.fairpay.modelos.Actividad
+import com.example.fairpay.modelos.Gasto
+import com.example.fairpay.modelos.Participante
 
 class ActividadProveedor {
     companion object {

@@ -1,4 +1,4 @@
-package com.example.proyectofinal
+package com.example.fairpay
 
 
 import android.content.Intent
@@ -15,10 +15,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinal.adaptadores.ActividadAdaptador
-import com.example.proyectofinal.modelos.Actividad
-import com.example.proyectofinal.modelos.Participante
-import com.example.proyectofinal.proveedores.ActividadProveedor
+import com.example.fairpay.adaptadores.ActividadAdaptador
+import com.example.fairpay.modelos.Actividad
+import com.example.fairpay.modelos.Participante
+import com.example.fairpay.proveedores.ActividadProveedor
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {

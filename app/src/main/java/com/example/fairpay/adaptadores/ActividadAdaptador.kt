@@ -1,14 +1,14 @@
-package com.example.proyectofinal.adaptadores
+package com.example.fairpay.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.proyectofinal.MainActivity
-import com.example.proyectofinal.R
-import com.example.proyectofinal.databinding.ElementoActividadBinding
-import com.example.proyectofinal.modelos.Actividad
+import com.example.fairpay.MainActivity
+import com.example.fairpay.R
+import com.example.fairpay.databinding.ElementoActividadBinding
+import com.example.fairpay.modelos.Actividad
 
 class ActividadAdaptador(val actividades: List<Actividad>, val seleccionados: List<Int>, val onClickLargo: (Int) -> Unit, val onclickCorto: (Int) -> Unit) : RecyclerView.Adapter<ActividadAdaptador.GrupoViewHolder>() {
 

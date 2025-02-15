@@ -1,4 +1,4 @@
-package com.example.proyectofinal.fragmentos
+package com.example.fairpay.fragmentos
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectofinal.R
-import com.example.proyectofinal.adaptadores.GastoAdaptador
-import com.example.proyectofinal.databinding.FragmentoGastosBinding
-import com.example.proyectofinal.modelos.Actividad
+import com.example.fairpay.R
+import com.example.fairpay.adaptadores.GastoAdaptador
+import com.example.fairpay.databinding.FragmentoGastosBinding
+import com.example.fairpay.modelos.Actividad
 
 class FragmentoGastos : Fragment() {
 

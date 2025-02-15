@@ -1,4 +1,4 @@
-package com.example.proyectofinal.modelos
+package com.example.fairpay.modelos
 
 import java.io.Serializable
 

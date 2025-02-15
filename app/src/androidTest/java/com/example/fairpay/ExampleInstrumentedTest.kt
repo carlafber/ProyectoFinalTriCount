@@ -1,4 +1,4 @@
-package com.example.proyectofinal
+package com.example.fairpay
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

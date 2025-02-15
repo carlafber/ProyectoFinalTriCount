@@ -1,4 +1,4 @@
-package com.example.proyectofinal.adaptadores
+package com.example.fairpay.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinal.R
-import com.example.proyectofinal.modelos.Participante
+import com.example.fairpay.R
+import com.example.fairpay.modelos.Participante
 
 class ParticipanteAdaptador(
     private val participantes: MutableList<Participante>,

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ProyectoFinal"
+rootProject.name = "FairPay"
 include(":app")
  

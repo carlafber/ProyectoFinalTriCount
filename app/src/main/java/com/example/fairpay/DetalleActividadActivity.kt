@@ -1,4 +1,4 @@
-package com.example.proyectofinal
+package com.example.fairpay
 
 import android.os.Bundle
 import android.util.Log
@@ -6,11 +6,11 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.example.proyectofinal.databinding.ActivityDetalleActividadBinding
-import com.example.proyectofinal.fragmentos.FragmentoDeudas
-import com.example.proyectofinal.fragmentos.FragmentoGastos
-import com.example.proyectofinal.modelos.Actividad
-import com.example.proyectofinal.proveedores.ActividadProveedor
+import com.example.fairpay.databinding.ActivityDetalleActividadBinding
+import com.example.fairpay.fragmentos.FragmentoGastos
+import com.example.fairpay.fragmentos.FragmentoSaldos
+import com.example.fairpay.modelos.Actividad
+import com.example.fairpay.proveedores.ActividadProveedor
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DetalleActividadActivity : AppCompatActivity() {
@@ -52,7 +52,7 @@ class DetalleActividadActivity : AppCompatActivity() {
                 }
                 R.id.deudas -> {
                     actividadSeleccionada?.let {
-                        FragmentoDeudas.nuevaInstancia(it)
+                        FragmentoSaldos.nuevaInstancia(it)
                     }
                 }
                 else -> null

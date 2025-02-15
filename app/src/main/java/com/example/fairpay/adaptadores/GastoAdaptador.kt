@@ -1,12 +1,12 @@
-package com.example.proyectofinal.adaptadores
+package com.example.fairpay.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinal.R
-import com.example.proyectofinal.databinding.ElementoGastoBinding
-import com.example.proyectofinal.modelos.Gasto
+import com.example.fairpay.R
+import com.example.fairpay.databinding.ElementoGastoBinding
+import com.example.fairpay.modelos.Gasto
 
 class GastoAdaptador(private val gastos: List<Gasto>) : RecyclerView.Adapter<GastoAdaptador.GastoViewHolder>() {
 

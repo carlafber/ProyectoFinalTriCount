@@ -1,4 +1,4 @@
-package com.example.proyectofinal.fragmentos
+package com.example.fairpay.fragmentos
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,19 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectofinal.R
-import com.example.proyectofinal.adaptadores.DeudaAdaptador
-import com.example.proyectofinal.databinding.FragmentoDeudasBinding
-import com.example.proyectofinal.modelos.Actividad
+import com.example.fairpay.R
+import com.example.fairpay.adaptadores.SaldoAdaptador
+import com.example.fairpay.databinding.FragmentoSaldosBinding
+import com.example.fairpay.modelos.Actividad
 
-class FragmentoDeudas : Fragment() {
+class FragmentoSaldos : Fragment() {
 
     private lateinit var actividadSeleccionada: Actividad
-    private lateinit var deudaAdaptador: DeudaAdaptador
+    private lateinit var saldoAdaptador: SaldoAdaptador
 
     companion object {
-        fun nuevaInstancia(actividad: Actividad): FragmentoDeudas {
-            val fragment = FragmentoDeudas()
+        fun nuevaInstancia(actividad: Actividad): FragmentoSaldos {
+            val fragment = FragmentoSaldos()
             val args = Bundle()
             args.putSerializable("actividad", actividad)  // Pasamos la actividad como argumento
             fragment.arguments = args
@@ -30,19 +30,19 @@ class FragmentoDeudas : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val vista = inflater.inflate(R.layout.fragmento_deudas, container, false)
+        val vista = inflater.inflate(R.layout.fragmento_saldos, container, false)
 
-        val binding = FragmentoDeudasBinding.bind(vista)
+        val binding = FragmentoSaldosBinding.bind(vista)
         // Recuperamos la actividad pasada como argumento
         actividadSeleccionada = arguments?.getSerializable("actividad") as Actividad
 
 
         // Configuramos el RecyclerView para mostrar las deudas
-        deudaAdaptador = DeudaAdaptador(actividadSeleccionada.participantes)
+        saldoAdaptador = SaldoAdaptador(actividadSeleccionada.participantes)
         binding.rvDeudas.layoutManager = LinearLayoutManager(context)
-        binding.rvDeudas.adapter = deudaAdaptador
+        binding.rvDeudas.adapter = saldoAdaptador
 
-        deudaAdaptador.notifyDataSetChanged()
+        saldoAdaptador.notifyDataSetChanged()
 
         return vista
     }

@@ -1,4 +1,4 @@
-package com.example.proyectofinal
+package com.example.fairpay
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.proyectofinal
+package com.example.fairpay
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.Button
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinal.adaptadores.ParticipanteAdaptador
-import com.example.proyectofinal.modelos.Participante
+import com.example.fairpay.adaptadores.ParticipanteAdaptador
+import com.example.fairpay.modelos.Participante
 
 class DialogoEditarActividad(
     private var nombreActividad: String,

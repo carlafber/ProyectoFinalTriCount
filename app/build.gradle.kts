@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.proyectofinal"
+    namespace = "com.example.fairpay"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.proyectofinal"
+        applicationId = "com.example.fairpay"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

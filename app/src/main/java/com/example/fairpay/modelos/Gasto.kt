@@ -1,4 +1,4 @@
-package com.example.proyectofinal.modelos
+package com.example.fairpay.modelos
 
 import android.util.Log
 import java.io.Serializable
@@ -38,24 +38,24 @@ data class Gasto(
 
     private fun calcularDeudas(actividad: Actividad) {
         // Crear una lista de deudas basadas en los balances actuales de los participantes
-        val deudas = mutableListOf<Deuda>()
+        val saldos = mutableListOf<Saldo>()
 
         // Calcular las deudas: un deudor debe la diferencia entre lo que ha pagado y lo que le tocaba pagar
         for (participante in actividad.participantes) {
             // Aquí asumimos que el saldo negativo representa deuda
             if (participante.balance < 0) {
-                val deuda = Deuda(
+                val saldo = Saldo(
                     deudor = participante,
                     acreedor = actividad.participantes.first { it.balance > 0 }, // Puedes modificar este criterio según la lógica que necesites
                     cantidad = Math.abs(participante.balance) // La deuda es el valor absoluto del balance
                 )
-                deudas.add(deuda)
+                saldos.add(saldo)
                 //Log.i("Deuda", "${participante.nombre} debe ${Math.abs(participante.balance)}")
-                Log.i("Deuda1", "${deuda.deudor.nombre} debe ${Math.abs(deuda.cantidad)} a ${deuda.acreedor.nombre}")
+                Log.i("Deuda1", "${saldo.deudor.nombre} debe ${Math.abs(saldo.cantidad)} a ${saldo.acreedor.nombre}")
             }
         }
 
         // Log para mostrar las deudas calculadas
-        Log.i("Deudas", "Deudas calculadas: $deudas")
+        Log.i("Deudas", "Deudas calculadas: $saldos")
     }
 }
