@@ -5,14 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="30dp"
     tools:context=".RellenarGrupoActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color"
+        android:background="@color/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,8 +32,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:foregroundGravity="bottom"
-        app:itemIconTint="@color/color3"
-        app:itemTextColor="@color/color3"
+        app:itemIconTint="@color/items"
+        app:itemTextColor="@color/items"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

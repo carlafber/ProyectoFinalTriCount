@@ -1,11 +1,12 @@
 package com.example.fairpay.adaptadores
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.fairpay.MainActivity
 import com.example.fairpay.R
 import com.example.fairpay.databinding.ElementoActividadBinding
 import com.example.fairpay.modelos.Actividad
@@ -29,8 +30,9 @@ class ActividadAdaptador(val actividades: List<Actividad>, val seleccionados: Li
 
 
     override fun onBindViewHolder(holder: GrupoViewHolder, position: Int) {
+        val seleccionada = seleccionados.contains(position)
         //Se invoca por cada elemento que se visualiza
-        holder.vincular(actividades[position], seleccionados.contains(position))
+        holder.vincular(actividades[position], seleccionada)
 
         holder.vista.setOnClickListener {
             onclickCorto(position)
@@ -51,11 +53,17 @@ class ActividadAdaptador(val actividades: List<Actividad>, val seleccionados: Li
             binding.tvNombreActividad.text = actividad.nombre
             binding.tvParticipantes.text = "Número de participantes: " + actividad.participantes.size
 
-            if (MainActivity.actionMode_activo && seleccionado) {
-                print("a")
+            if(seleccionado){
+                Log.i("SEL", "SELECCIONADA")
+            }
 
+            if (seleccionado) {
+                // Si está seleccionado, cambia el color de fondo a "seleccionado", de lo contrario a "sin_seleccionar"
+                binding.card.backgroundTintList = ContextCompat.getColorStateList(vista.context,
+                    if (seleccionado) R.color.seleccionado else R.color.sin_selecionar)
             } else {
-                print("b")
+                // Si el ActionMode no está activo, pone el color predeterminado
+                binding.card.backgroundTintList = ContextCompat.getColorStateList(vista.context, R.color.sin_selecionar)
             }
         }
     }

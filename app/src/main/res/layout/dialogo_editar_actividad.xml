@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar actividad"
+        android:textColor="@color/titulos"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/txtNombreActividad"
@@ -64,37 +65,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/color"
+        android:backgroundTint="@color/botones"
         android:text="Añadir Participante"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNuevoParticipante" />
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btGuardar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:gravity="end"
-        android:orientation="horizontal"
-        android:paddingTop="16dp"
+        android:backgroundTint="@color/botones"
+        android:text="Guardar cambios"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btNuevoParticipanteEditar">
+        app:layout_constraintTop_toBottomOf="@+id/btNuevoParticipanteEditar" />
 
-        <Button
-            android:id="@+id/btCancelar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/color"
-            android:text="Cancelar" />
-
-        <Button
-            android:id="@+id/btGuardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:backgroundTint="@color/color"
-            android:text="Guardar cambios" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/botones"
+        android:text="Cancelar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btNuevoParticipanteEditar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

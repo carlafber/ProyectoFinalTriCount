@@ -154,13 +154,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Función para manejar el click corto (abre el menú de selección)
-    private fun onClickLargo(pos: Int) {
+    private fun onClickCorto(pos: Int) {
         if (!ActividadProveedor.actividades_seleccionadas.contains(pos)) {
             ActividadProveedor.actividades_seleccionadas.add(pos)
+        } else{
+            ActividadProveedor.actividades_seleccionadas.remove(pos)
         }
 
-        toolbar.inflateMenu(R.menu.menu_contextual_grupo)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // Gestionar el ActionMode solo cuando haya actividades seleccionadas
+        if (ActividadProveedor.actividades_seleccionadas.isNotEmpty()) {
+            if (!actionMode_activo) {
+                actionMode_activo = true
+                toolbar.inflateMenu(R.menu.menu_toolbar)
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            }
+        } else {
+            limpiarActionMode()
+        }
+
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.item_edit -> {
@@ -169,8 +180,8 @@ class MainActivity : AppCompatActivity() {
                         val grupo_seleccionado = ActividadProveedor.listaActividades[grupo_indice]
 
                         DialogoEditarActividad(
-                            nombreActividad = grupo_seleccionado.nombre,
-                            participantes = grupo_seleccionado.participantes.toMutableList()
+                            grupo_seleccionado.nombre,
+                            grupo_seleccionado.participantes.toMutableList()
                         ) { nuevoNombre, nuevosParticipantes ->
                             if (nuevoNombre.isEmpty()) {
                                 Toast.makeText(this, "ERROR, complete el campo", Toast.LENGTH_LONG).show()
@@ -183,6 +194,8 @@ class MainActivity : AppCompatActivity() {
                                 limpiarActionMode()
                             }
                         }.show(supportFragmentManager, "EditarActividadDialog")
+                    } else {
+                        Toast.makeText(this, "Por favor seleccione solo un grupo", Toast.LENGTH_LONG).show()
                     }
                 }
 
@@ -197,11 +210,12 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        adaptador.notifyItemChanged(pos)
     }
 
 
-    // Función para manejar el click corto (abre DetalleGrupoActivity solo si el grupo tiene 0 participantes)
-    private fun onClickCorto(pos: Int): Boolean {
+    // Función para manejar el click largo (abre DetalleActividadActivity)
+    private fun onClickLargo(pos: Int): Boolean {
         val actividad = ActividadProveedor.listaActividades[pos]
 
         val intent = Intent(this, DetalleActividadActivity::class.java)

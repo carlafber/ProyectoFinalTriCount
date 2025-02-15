@@ -50,7 +50,7 @@ class DetalleActividadActivity : AppCompatActivity() {
                         FragmentoGastos.nuevaInstancia(it)
                     }
                 }
-                R.id.deudas -> {
+                R.id.saldos -> {
                     actividadSeleccionada?.let {
                         FragmentoSaldos.nuevaInstancia(it)
                     }

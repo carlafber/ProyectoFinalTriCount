@@ -39,8 +39,8 @@ class FragmentoSaldos : Fragment() {
 
         // Configuramos el RecyclerView para mostrar las deudas
         saldoAdaptador = SaldoAdaptador(actividadSeleccionada.participantes)
-        binding.rvDeudas.layoutManager = LinearLayoutManager(context)
-        binding.rvDeudas.adapter = saldoAdaptador
+        binding.rvSaldos.layoutManager = LinearLayoutManager(context)
+        binding.rvSaldos.adapter = saldoAdaptador
 
         saldoAdaptador.notifyDataSetChanged()
 

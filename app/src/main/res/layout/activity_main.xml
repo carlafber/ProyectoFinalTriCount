@@ -19,7 +19,7 @@
         android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color"
+        android:background="@color/toolbar"
         app:title="GESTOR DE GASTOS"
         app:titleTextColor="#FFFFFF" />
 
@@ -43,8 +43,8 @@ al recyclerview debajo del AppBarLayout -->
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
         android:clickable="true"
-        android:tint="#FFFFFF"
-        app:backgroundTint="@color/color"
+        android:tint="@color/white"
+        app:backgroundTint="@color/botones"
         app:srcCompat="@drawable/ic_add" />
 
 

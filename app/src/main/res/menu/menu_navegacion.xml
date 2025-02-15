@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_dinero"
         android:title="Gastos" />
     <item
-        android:id="@+id/deudas"
+        android:id="@+id/saldos"
         android:icon="@drawable/ic_cartera"
         android:title="Saldos" />
 </menu>

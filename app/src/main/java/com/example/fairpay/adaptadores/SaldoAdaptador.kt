@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fairpay.R
-import com.example.fairpay.databinding.ElementoDeudaBinding
+import com.example.fairpay.databinding.ElementoSaldoBinding
 import com.example.fairpay.modelos.Participante
 
 class SaldoAdaptador(private val participantes: List<Participante>) : RecyclerView.Adapter<SaldoAdaptador.DeudaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeudaViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.elemento_deuda, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.elemento_saldo, parent, false)
         return DeudaViewHolder(view)
     }
 
@@ -24,7 +24,7 @@ class SaldoAdaptador(private val participantes: List<Participante>) : RecyclerVi
     override fun getItemCount(): Int = participantes.size
 
     class DeudaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val binding = ElementoDeudaBinding.bind(itemView)
+        val binding = ElementoSaldoBinding.bind(itemView)
 
 
         fun bind(participante: Participante) {
@@ -40,7 +40,7 @@ class SaldoAdaptador(private val participantes: List<Participante>) : RecyclerVi
                 binding.txtDeuda.text = String.format("%.2f€", participante.balance)
 
             } else {
-                binding.txtDeuda.text = "No debe"
+                binding.txtDeuda.text = String.format("%.2f€", participante.balance)
             }
         }
     }

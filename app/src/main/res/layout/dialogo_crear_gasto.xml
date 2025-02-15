@@ -7,98 +7,89 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvNueva"
+        android:id="@+id/tvNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Añadir nueva actividad"
+        android:text="Añadir un nuevo gasto"
         android:textColor="@color/titulos"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txtNombreNuevaActividad"
+        app:layout_constraintStart_toStartOf="@+id/txtNombreNuevoGasto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtNombreNuevaActividad"
+        android:id="@+id/txtNombreNuevoGasto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Nombre de la actividad"
+        android:hint="Nombre del gasto"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNueva" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNuevo" />
+
+    <EditText
+        android:id="@+id/txtCantidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Cantidad"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreNuevoGasto" />
 
     <TextView
-        android:id="@+id/tvPart"
+        android:id="@+id/tvPagador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Participantes"
+        android:layout_marginTop="30dp"
+        android:text="Pagador"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtParticipante"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreNuevaActividad" />
+        app:layout_constraintStart_toStartOf="@+id/spPagador"
+        app:layout_constraintTop_toBottomOf="@+id/txtCantidad" />
 
-    <EditText
-        android:id="@+id/txtParticipante"
-        android:layout_width="0dp"
+    <Spinner
+        android:id="@+id/spPagador"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Nombre del participante"
-        android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPart" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPagador" />
 
     <Button
-        android:id="@+id/btNuevoParticipante"
+        android:id="@+id/btCancelarGasto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/botones"
-        android:text="Añadir Participante"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtParticipante" />
-
-    <TextView
-        android:id="@+id/tvListaNuevosParticipantes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="No hay participantes"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btNuevoParticipante" />
-
-    <Button
-        android:id="@+id/btCancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/botones"
         android:text="Cancelar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintEnd_toStartOf="@+id/btGuardar"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvListaNuevosParticipantes" />
+        app:layout_constraintTop_toBottomOf="@+id/spPagador" />
 
     <Button
-        android:id="@+id/btGuardar"
+        android:id="@+id/btGuardarGasto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="@color/botones"
         android:text="Guardar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvListaNuevosParticipantes" />
+        app:layout_constraintTop_toBottomOf="@+id/spPagador" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
